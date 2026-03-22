@@ -14,13 +14,10 @@ y_true = iris.target # Prawdziwe etykiety z bazy (do metryk)
 # 2. Inicjalizacja i dopasowanie modelu K-Means
 kmeans = KMeans(n_clusters=3, random_state=1, n_init=10)
 kmeans.fit(X)
-
 # 3. Pobranie wyników
 y_kmeans = kmeans.predict(X)
 centers = kmeans.cluster_centers_
 
-# --- SEKCJA DO SPRAWOZDANIA: METRYKI ---
-# K-Means nie wie, który klastr to który gatunek. Musimy dopasować numery grup do oryginału.
 labels = np.zeros_like(y_kmeans)
 for i in range(3):
     mask = (y_kmeans == i)
@@ -31,8 +28,6 @@ print(f"Accuracy (Dokładność): {accuracy_score(y_true, labels):.2f}")
 print("\nPełny raport:")
 print(classification_report(y_true, labels, target_names=iris.target_names))
 
-# --- SEKCJA DO SPRAWOZDANIA: WIZUALIZACJA T-SNE ---
-# t-SNE "zgniata" 4 wymiary do 2, żebyśmy widzieli wszystko na jednym wykresie
 tsne = TSNE(n_components=2, random_state=1, perplexity=30)
 X_tsne = tsne.fit_transform(X)
 
