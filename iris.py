@@ -47,7 +47,7 @@ ax1.set_xlabel(iris.feature_names[2])
 ax1.set_ylabel(iris.feature_names[3])
 ax1.legend()
 
-# Wykres 2: Wizualizacja t-SNE (całość danych 4D rzutowana na 2D) 
+# Wykres 2: Wizualizacja t-SNE (całość danych 4D rzutowana na 2D)
 ax2.scatter(X_tsne[:, 0], X_tsne[:, 1], c=y_kmeans, s=50, cmap='viridis')
 ax2.set_title("Wizualizacja t-SNE (Wszystkie 4 cechy)")
 ax2.set_xlabel("Wymiar t-SNE 1")
