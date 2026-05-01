@@ -1,0 +1,4 @@
+Task3/data/
+venv/
+__pycache__/
+*.tar.gz
